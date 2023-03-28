@@ -1,0 +1,103 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{cite,natbib} %For better bibliography.
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz-cd} %For commutative diagrams.
+\usetikzlibrary{matrix}
+
+\usetheme[block=fill,numbering=fraction,progressbar=frametitle]{metropolis}
+\useinnertheme{circles}
+
+%\setbeamertemplate{theorems}[numbered]
+
+\usepackage{thmtools} %for spacing of theroem heading in title environment.
+\declaretheoremstyle[
+headfont=\bfseries,%
+headpunct={\vspace{\topsep}\newline}, %
+numbered=no,
+spaceabove=3\topsep, %
+postheadspace=0 pt ]{exercs}
+
+
+%For better bibliography.
+\bibliographystyle{unsrt}
+\renewcommand{\bibfont}{\footnotesize}
+\setbeamertemplate{frametitle continuation}[from second]
+
+\newcommand{\bbox}[1]{
+	\noindent\fbox{ \parbox{\textwidth}{#1} \vspace{2pt}} }
+\renewcommand{\bibsection}{}
+
+%Theorem environments
+\usepackage{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+\theoremstyle{definition}
+\newmdtheoremenv[nobreak=true]{lmma}{Lemma}
+\newmdtheoremenv{conclusion}{Conclusion}
+\newtheorem{defn}{Definition}
+\newmdtheoremenv{prop}{Proposition}
+\newmdtheoremenv{lma}{Lemma}
+\newmdtheoremenv{cor}{Corollary}
+\newmdtheoremenv{thm}{Theorem}
+\newtheorem*{obs}{Observation}
+\theoremstyle{remark}
+\newtheorem*{rmk}{Remark}
+\newtheorem*{eg}{Example}
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\renewcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\F{\ensuremath{\mathbb{F}}}
+\newcommand{\Zn}{\ensuremath{\mathbb{Z}_{\geq 0}^n}}
+\newcommand{\m}{\ensuremath{\mathfrak{m}}}
+\renewcommand{\S}{\ensuremath{\mathcal{S}}}
+\renewcommand{\a}{\ensuremath{\mathfrak{a}}}
+\renewcommand{\b}{\ensuremath{\mathfrak{b}}}
+
+%Make implies and impliedby shorter
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+\let\phi\varphi
+
+% Add \contra symbol to denote contradiction
+\usepackage{stmaryrd} % for \lightning
+\newcommand\contra{\scalebox{1.5}{$\lightning$}}
+
+\usepackage{thmtools}
+\usepackage{kantlipsum}
+
+\declaretheoremstyle[
+headfont=\bfseries,%
+headpunct={\vspace{\topsep}\newline}, %
+numbered=no,
+spaceabove=3\topsep, %
+postheadspace=0 pt ]{exercs}
+\declaretheorem[name=EXERCISES,style=exercs]{problems}
+
+\usepackage{todonotes}
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{noot}[1][]{enhanced,
+  before skip=2mm,after skip=3mm,
+  boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+  colback=white!50,
+  colframe=yellow!20!black,
+  sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+  underlay={%
+    \path[fill=black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+    },
+  drop fuzzy shadow,#1}
+
+
+\author{Akshay Dhan}
